@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Reset */
+
+body{
+    font-family: 'Press Start 2P', cursive;
+    background-color: #212121;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    margin: 2em;
+}
+
+.container-centered{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.email-check{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1em;
+    /* flex */
+
+}
+
+.email-check form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.email-check form input {
+    flex-grow: 1;
+    height: 2em;
+    border-radius: 10px;
+    border: none;
+
+    text-align: center;
+}
+
+.email-check #btn-submit{
+    padding: 1em 4em;
+    border-radius: 10px;
+    border: none;
+    background-color: #F1A208;
+
+    font-family: 'Press Start 2P', cursive;
+}
+
+.email-check #btn-submit:active{
+    transform: scale(.9);
+}
+
+.email-check #message{
+    margin-top: 2em;
+}
+
+

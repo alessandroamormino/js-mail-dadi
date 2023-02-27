@@ -110,8 +110,10 @@ loginEl.addEventListener('click', function(){
                 // Controllo esito partita
                 // ? SE la variabile è >= 2
                 if(wins>=2){
+                    // ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
                     console.log('Hai vinto! :)');
                 }else{
+                    // ° F1: Stampo nel DOM che il giocatore ha perso la partita;
                     console.log('Hai perso.. :(');
                 }
             }
