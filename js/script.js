@@ -13,20 +13,20 @@
 
 /* 
 
-- Seleziono l'input dell'utente dal DOM e ne salvo il valore al click del bottone "Accedi";
-- Inizializzo un'array che contenga n email di persone che possono accedere;
-- PER OGNI ELEMENTO DELL'ARRAY
+x Seleziono l'input dell'utente dal DOM e ne salvo il valore al click del bottone "Gioca";
+x Inizializzo un'array che contenga n email di persone che possono accedere;
+x PER OGNI ELEMENTO DELL'ARRAY
     ? SE La mail inserita in input è contenuta nell'array
-        ° V1: Stampare nel DOM che l'utente può giocare
+        x V1: Stampare nel DOM che l'utente può giocare
     : ALTRIMENTI 
-        ° F1: Stampare nel DOM che l'utente non può giocare
-- Creare due variabili che contengano due numeri casuali da 1 a 6, uno per l'utente e uno per il PC;
+        x F1: Stampare nel DOM che l'utente non può giocare
+x Creare due variabili che contengano due numeri casuali da 1 a 6, uno per l'utente e uno per il PC;
 ? SE dadoUtente > dadoPC
-    ° V1: Stampare nel DOM che l'utente ha vinto (con sua mail/nome);
+    x V1: Stampare nel DOM che l'utente ha vinto (con sua mail/nome);
 :? ALTRIMENTI SE dadoUtente = dadoPC
-    ° V1: Stampare nel DOM che c'è stato un pareggio;
+    x V1: Stampare nel DOM che c'è stato un pareggio;
 : ALTRIMENTI 
-    ° F1: Stampare nel DOM che l'utente ha perso;
+    x F1: Stampare nel DOM che l'utente ha perso;
 
 BONUS: 
 - Credo due sezioni nel DOM affiancate che corrispondono al dadoUtente e al dadoPC;
@@ -58,8 +58,15 @@ let users = ['asd123@gmail.com', 'prova@icloud.com', 'ciao@gmail.com', 'test@lib
 let email;
 
 loginEl.addEventListener('click', function(){
+
+    // - Creare due variabili che contengano due numeri casuali da 1 a 6, uno per l'utente e uno per il PC;
+    let dadoUser = Math.floor(Math.random()*6)+1;
+    let dadoPc = Math.floor(Math.random()*6)+1;
+
     // salvo il valore al click
     email = emailEl.value;
+
+    // CONTROLLO MAIL
 
     let okLogin = 0;
 
@@ -77,9 +84,20 @@ loginEl.addEventListener('click', function(){
     if(okLogin==1){
         // ° V1: Stampare nel DOM che l'utente può giocare
         messageEl.innerHTML = 'Puoi giocare :)';
+
+            // GIOCO DEI DADI
+            if(dadoUser>dadoPc){
+                console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
+            }else if(dadoUser==dadoPc){
+                console.log(`${dadoUser}-${dadoPc}: Parità!`);
+            }else{
+                console.log(`${dadoUser}-${dadoPc}: Hai perso questo round..`);
+            }
+
     }else {
         // ° F1: Stampare nel DOM che l'utente non può giocare
         messageEl.innerHTML = 'Non puoi giocare :(';
     }
+
 
 });
