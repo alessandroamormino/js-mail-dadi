@@ -43,7 +43,11 @@ x PER OGNI ELEMENTO DELL'ARRAY W/L:
         ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
     : ALTRIMENTI
         ° F1: Stampo nel DOM che il giocatore ha perso la partita;
+
+x Creo bottone per nuova partita (refresh page);
+
 */
+ 
 
 // CODE:
 
@@ -121,11 +125,21 @@ loginEl.addEventListener('click', function(){
                         gameEl.innerHTML = `Hai vinto! :)`;
                         console.log('Hai vinto! :)');
                         wins = 0;
+
+                        // NUOVA PARTITA
+                        newGameEl.style.display = 'flex';
+                        newGameEl.style.justifyContent = 'center';
+                        newGameEl.style.marginTop = '2em';
                     }else{
                         // ° F1: Stampo nel DOM che il giocatore ha perso la partita;
                         gameEl.innerHTML = `Hai perso.. :(`;
                         console.log('Hai perso.. :(');
                         wins = 0;
+
+                        // NUOVA PARTITA
+                        newGameEl.style.display = 'flex';
+                        newGameEl.style.justifyContent = 'center';
+                        newGameEl.style.marginTop = '2em';
                     }
                 }
         }else{

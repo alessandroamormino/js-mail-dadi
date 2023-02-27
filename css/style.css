@@ -92,3 +92,7 @@ h1{
 
     margin-top: 2em;
 }
+
+#new-game {
+    display: none;
+}
