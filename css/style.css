@@ -46,7 +46,7 @@ h1{
     text-align: center;
 }
 
-.email-check #btn-submit{
+.btn{
     padding: 1em 4em;
     border-radius: 10px;
     border: none;
@@ -86,4 +86,9 @@ h1{
     width: 2px;
 }
 
+#game {
+    display: flex;
+    justify-content: center;
 
+    margin-top: 2em;
+}

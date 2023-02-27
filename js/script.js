@@ -51,6 +51,8 @@ x PER OGNI ELEMENTO DELL'ARRAY W/L:
 let emailEl = document.getElementById('email');
 let loginEl = document.getElementById('btn-submit');
 let messageEl = document.getElementById('message');
+let gameEl = document.getElementById('game');
+let newGameEl = document.getElementById('new-game');
 let email;
 
 // - Inizializzo un'array che contenga n email di persone che possono accedere;
@@ -94,11 +96,14 @@ loginEl.addEventListener('click', function(){
                 if(recordWL.length<3){
                     if(dadoUser>dadoPc){
                         recordWL.push('W');
+                        gameEl.innerHTML = `${dadoUser}-${dadoPc}: Hai vinto questo round!`;
                         console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
                     }else if(dadoUser==dadoPc){
+                        gameEl.innerHTML = `${dadoUser}-${dadoPc}: Parità!`;
                         console.log(`${dadoUser}-${dadoPc}: Parità!`);
                     }else{
                         recordWL.push('L');
+                        gameEl.innerHTML = `${dadoUser}-${dadoPc}: Hai perso questo round..`;
                         console.log(`${dadoUser}-${dadoPc}: Hai perso questo round..`);
                     }
                 }else{
@@ -113,10 +118,14 @@ loginEl.addEventListener('click', function(){
                     // ? SE la variabile è >= 2
                     if(wins>=2){
                         // ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
+                        gameEl.innerHTML = `Hai vinto! :)`;
                         console.log('Hai vinto! :)');
+                        wins = 0;
                     }else{
                         // ° F1: Stampo nel DOM che il giocatore ha perso la partita;
+                        gameEl.innerHTML = `Hai perso.. :(`;
                         console.log('Hai perso.. :(');
+                        wins = 0;
                     }
                 }
         }else{
