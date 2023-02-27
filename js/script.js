@@ -69,57 +69,63 @@ loginEl.addEventListener('click', function(){
     // salvo il valore al click
     email = emailEl.value;
 
-    // CONTROLLO MAIL
+    if(email!==''){
 
-    let okLogin = 0;
+        // CONTROLLO MAIL
 
-    // - PER OGNI ELEMENTO DELL'ARRAY
-    for(let i=0; i<users.length; i++){
+        let okLogin = 0;
 
-        // ? SE La mail inserita in input è contenuta nell'array
-        if(email===users[i]){
-            okLogin++;
-        } else {
-            okLogin += 0;
+        // - PER OGNI ELEMENTO DELL'ARRAY
+        for(let i=0; i<users.length; i++){
+
+            // ? SE La mail inserita in input è contenuta nell'array
+            if(email===users[i]){
+                okLogin++;
+            } else {
+                okLogin += 0;
+            }
         }
-    }
 
-    if(okLogin==1){
-        // ° V1: Stampare nel DOM che l'utente può giocare
-        messageEl.innerHTML = 'Puoi giocare :)';
+        if(okLogin==1){
+            // ° V1: Stampare nel DOM che l'utente può giocare
+            messageEl.innerHTML = 'Puoi giocare :)';
 
-            // GIOCO DEI DADI
-            if(recordWL.length<3){
-                if(dadoUser>dadoPc){
-                    recordWL.push('W');
-                    console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
-                }else if(dadoUser==dadoPc){
-                    console.log(`${dadoUser}-${dadoPc}: Parità!`);
+                // GIOCO DEI DADI
+                if(recordWL.length<3){
+                    if(dadoUser>dadoPc){
+                        recordWL.push('W');
+                        console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
+                    }else if(dadoUser==dadoPc){
+                        console.log(`${dadoUser}-${dadoPc}: Parità!`);
+                    }else{
+                        recordWL.push('L');
+                        console.log(`${dadoUser}-${dadoPc}: Hai perso questo round..`);
+                    }
                 }else{
-                    recordWL.push('L');
-                    console.log(`${dadoUser}-${dadoPc}: Hai perso questo round..`);
-                }
-            }else{
-                for(let n=0; n<recordWL.length; n++){
-                    //  Conto quante W ci sono e le memorizzo in una variabile;
-                    if(recordWL[n]==='W'){
-                        wins++;
+                    for(let n=0; n<recordWL.length; n++){
+                        //  Conto quante W ci sono e le memorizzo in una variabile;
+                        if(recordWL[n]==='W'){
+                            wins++;
+                        }
+                    }
+                    
+                    // Controllo esito partita
+                    // ? SE la variabile è >= 2
+                    if(wins>=2){
+                        // ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
+                        console.log('Hai vinto! :)');
+                    }else{
+                        // ° F1: Stampo nel DOM che il giocatore ha perso la partita;
+                        console.log('Hai perso.. :(');
                     }
                 }
-                
-                // Controllo esito partita
-                // ? SE la variabile è >= 2
-                if(wins>=2){
-                    // ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
-                    console.log('Hai vinto! :)');
-                }else{
-                    // ° F1: Stampo nel DOM che il giocatore ha perso la partita;
-                    console.log('Hai perso.. :(');
-                }
-            }
-    }else {
-        // ° F1: Stampare nel DOM che l'utente non può giocare
-        messageEl.innerHTML = 'Non puoi giocare :(';
+        }else{
+            // ° F1: Stampare nel DOM che l'utente non può giocare
+            messageEl.innerHTML = 'Non puoi giocare :(';
+        }
+
+    } else {
+        messageEl.innerHTML = 'Inserisci una mail..'; 
     }
 
 
