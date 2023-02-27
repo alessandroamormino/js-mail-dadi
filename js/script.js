@@ -78,10 +78,6 @@ loginEl.addEventListener('click', function(){
     let dadoUser = Math.floor(Math.random()*6)+1;
     let dadoPc = Math.floor(Math.random()*6)+1;
 
-    // - Valorizzo la mia src con l'immagine contenuta nell'array delle facce dei dadi (immagini) e la posizione la leggo dalla variabile numeri generati casuali - 1; 
-    userDiceEl.src = diceSrc[dadoUser-1];
-    pcDiceEl.src = diceSrc[dadoPc-1];
-
     // salvo il valore al click
     email = emailEl.value;
 
@@ -105,6 +101,10 @@ loginEl.addEventListener('click', function(){
         if(okLogin==1){
             // ° V1: Stampare nel DOM che l'utente può giocare
             messageEl.innerHTML = 'Puoi giocare :)';
+
+                // - Valorizzo la mia src con l'immagine contenuta nell'array delle facce dei dadi (immagini) e la posizione la leggo dalla variabile numeri generati casuali - 1; 
+                userDiceEl.src = diceSrc[dadoUser-1];
+                pcDiceEl.src = diceSrc[dadoPc-1];
 
                 // GIOCO DEI DADI
                 if(recordWL.length<3){
