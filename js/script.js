@@ -29,8 +29,8 @@ x Creare due variabili che contengano due numeri casuali da 1 a 6, uno per l'ute
     x F1: Stampare nel DOM che l'utente ha perso;
 
 BONUS: 
-- Credo due sezioni nel DOM affiancate che corrispondono al dadoUtente e al dadoPC;
-- Creo nel DOM un tag <img> senza src, per le due sezioni, che conterrà l'immagine del dado uscito;
+x Credo due sezioni nel DOM affiancate che corrispondono al dadoUtente e al dadoPC;
+x Creo nel DOM un tag <img> senza src, per le due sezioni, che conterrà l'immagine del dado uscito;
 - Valorizzo la mia src con l'immagine contenuta nell'array delle facce dei dadi (immagini) e la posizione la leggo dalla variabile numeri generati casuali - 1;
 - Stampo nel DOM il messaggio di vittoria/sconfitta stilizzato;
 
@@ -57,10 +57,16 @@ let loginEl = document.getElementById('btn-submit');
 let messageEl = document.getElementById('message');
 let gameEl = document.getElementById('game');
 let newGameEl = document.getElementById('new-game');
+let userDiceEl = document.getElementById('userDice');
+let pcDiceEl = document.getElementById('pcDice');
+
 let email;
 
 // - Inizializzo un'array che contenga n email di persone che possono accedere;
 let users = ['asd123@gmail.com', 'prova@icloud.com', 'ciao@gmail.com', 'test@libero.it'];
+
+// - Inizializzo un'array con le src delle immagini
+let diceSrc = ['img/dice1.png','img/dice2.png','img/dice3.png','img/dice4.png','img/dice5.png','img/dice6.png'];
 
 // - Creo un array vuoto che registri le vittorie o sconfitte del giocatore;
 let recordWL = [];
@@ -71,6 +77,10 @@ loginEl.addEventListener('click', function(){
     // - Creare due variabili che contengano due numeri casuali da 1 a 6, uno per l'utente e uno per il PC;
     let dadoUser = Math.floor(Math.random()*6)+1;
     let dadoPc = Math.floor(Math.random()*6)+1;
+
+    // - Valorizzo la mia src con l'immagine contenuta nell'array delle facce dei dadi (immagini) e la posizione la leggo dalla variabile numeri generati casuali - 1; 
+    userDiceEl.src = diceSrc[dadoUser-1];
+    pcDiceEl.src = diceSrc[dadoPc-1];
 
     // salvo il valore al click
     email = emailEl.value;
