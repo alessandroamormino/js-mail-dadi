@@ -113,7 +113,7 @@ loginEl.addEventListener('click', function(){
                         gameEl.innerHTML = `${dadoUser}-${dadoPc}: Hai vinto questo round!`;
                         console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
                     }else if(dadoUser==dadoPc){
-                        gameEl.innerHTML = `${dadoUser}-${dadoPc}: Parità!`;
+                        gameEl.innerHTML = `${dadoUser}-${dadoPc}: Pari!`;
                         console.log(`${dadoUser}-${dadoPc}: Parità!`);
                     }else{
                         recordWL.push('L');
@@ -133,6 +133,7 @@ loginEl.addEventListener('click', function(){
                     if(wins>=2){
                         // ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
                         gameEl.innerHTML = `Hai vinto! :)`;
+                        gameEl.style.color = 'green';
                         console.log('Hai vinto! :)');
                         wins = 0;
 
@@ -143,6 +144,7 @@ loginEl.addEventListener('click', function(){
                     }else{
                         // ° F1: Stampo nel DOM che il giocatore ha perso la partita;
                         gameEl.innerHTML = `Hai perso.. :(`;
+                        gameEl.style.color = 'red';
                         console.log('Hai perso.. :(');
                         wins = 0;
 
@@ -154,11 +156,11 @@ loginEl.addEventListener('click', function(){
                 }
         }else{
             // ° F1: Stampare nel DOM che l'utente non può giocare
-            messageEl.innerHTML = 'Non puoi giocare :(';
+            messageEl.innerHTML = 'Non puoi giocare :( <br><br> Prova con ciao@gmail.com';
         }
 
     } else {
-        messageEl.innerHTML = 'Inserisci una mail..'; 
+        messageEl.innerHTML = 'Inserisci una mail.. <br><br> Prova con ciao@gmail.com'; 
     }
 
 
