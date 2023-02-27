@@ -35,10 +35,10 @@ BONUS:
 - Stampo nel DOM il messaggio di vittoria/sconfitta stilizzato;
 
 BONUS 2: Alla meglio di 3!
-- Creo un array vuoto che registri le vittorie o sconfitte del giocatore;
-- In fase di controllo se vittoria o sconfitta, inserisco nell'array 'W' oppure 'L' riferito al giocatore con il metodo push();
+x Creo un array vuoto che registri le vittorie o sconfitte del giocatore;
+x In fase di controllo se vittoria o sconfitta, inserisco nell'array 'W' oppure 'L' riferito al giocatore con il metodo push();
 - PER OGNI ELEMENTO DELL'ARRAY W/L: 
-    ° Conto quante W ci sono e le memorizzo in una variabile;
+    x Conto quante W ci sono e le memorizzo in una variabile;
     ? SE la variabile è >= 2
         ° V1: Stampo nel DOM che il giocatore ha vinto la partita;
     : ALTRIMENTI
@@ -51,11 +51,14 @@ BONUS 2: Alla meglio di 3!
 let emailEl = document.getElementById('email');
 let loginEl = document.getElementById('btn-submit');
 let messageEl = document.getElementById('message');
+let email;
 
 // - Inizializzo un'array che contenga n email di persone che possono accedere;
 let users = ['asd123@gmail.com', 'prova@icloud.com', 'ciao@gmail.com', 'test@libero.it'];
 
-let email;
+// - Creo un array vuoto che registri le vittorie o sconfitte del giocatore;
+let recordWL = [];
+let wins = 0;
 
 loginEl.addEventListener('click', function(){
 
@@ -86,14 +89,32 @@ loginEl.addEventListener('click', function(){
         messageEl.innerHTML = 'Puoi giocare :)';
 
             // GIOCO DEI DADI
-            if(dadoUser>dadoPc){
-                console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
-            }else if(dadoUser==dadoPc){
-                console.log(`${dadoUser}-${dadoPc}: Parità!`);
+            if(recordWL.length<3){
+                if(dadoUser>dadoPc){
+                    recordWL.push('W');
+                    console.log(`${dadoUser}-${dadoPc}: Hai vinto questo round!`);
+                }else if(dadoUser==dadoPc){
+                    console.log(`${dadoUser}-${dadoPc}: Parità!`);
+                }else{
+                    recordWL.push('L');
+                    console.log(`${dadoUser}-${dadoPc}: Hai perso questo round..`);
+                }
             }else{
-                console.log(`${dadoUser}-${dadoPc}: Hai perso questo round..`);
+                for(let n=0; n<recordWL.length; n++){
+                    //  Conto quante W ci sono e le memorizzo in una variabile;
+                    if(recordWL[n]==='W'){
+                        wins++;
+                    }
+                }
+                
+                // Controllo esito partita
+                // ? SE la variabile è >= 2
+                if(wins>=2){
+                    console.log('Hai vinto! :)');
+                }else{
+                    console.log('Hai perso.. :(');
+                }
             }
-
     }else {
         // ° F1: Stampare nel DOM che l'utente non può giocare
         messageEl.innerHTML = 'Non puoi giocare :(';
