@@ -37,7 +37,7 @@ BONUS:
 BONUS 2: Alla meglio di 3!
 x Creo un array vuoto che registri le vittorie o sconfitte del giocatore;
 x In fase di controllo se vittoria o sconfitta, inserisco nell'array 'W' oppure 'L' riferito al giocatore con il metodo push();
-- PER OGNI ELEMENTO DELL'ARRAY W/L: 
+x PER OGNI ELEMENTO DELL'ARRAY W/L: 
     x Conto quante W ci sono e le memorizzo in una variabile;
     ? SE la variabile è >= 2
         ° V1: Stampo nel DOM che il giocatore ha vinto la partita;

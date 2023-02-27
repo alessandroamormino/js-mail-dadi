@@ -63,4 +63,27 @@ h1{
     margin-top: 2em;
 }
 
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+
+    height: 600px;
+
+    margin-top: 5em;
+}
+
+.board [class^="board"]{
+    width: 600px;
+    height: 100%;
+    background-color: #ffffff20;
+}
+
+.board .spacer {
+    background-color: #F1A208;
+    height: 90%;
+    width: 2px;
+}
+
 
